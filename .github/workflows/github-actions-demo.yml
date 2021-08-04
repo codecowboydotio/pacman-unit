@@ -10,7 +10,7 @@ jobs:
         run: |
           echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-          curl -X POST http://52.63.250.232:8080/pull -d '{ "branch":"main", "dest":"/www/pacman-unit", "repo":"http://github.com/${{ github.repository }}" }'
+          curl -s -X POST http://$UNIT_SERVER:8080/pull -d '{ "branch":"main", "dest":"/www/pacman-unit", "repo":"http://github.com/${{ github.repository }}" }'
           echo "curl -s -X POST http://x.x.x.x:8080/pull -d ${{ github.repository }}" > /tmp/foo
       #- run: cat /tmp/foo
       #- name: Check out repository code
